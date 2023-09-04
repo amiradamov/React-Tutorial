@@ -29,14 +29,15 @@ const Home = () => {
     return ( 
         <div className="home">
             <h2>Home Page</h2>
-            <button onClick={handleClick}>Click Me (tutorial 7)</button>
-            <button onClick={(e) => handleClickAgain('Mario', e)}>Click Me Again (tutorial 7)</button>
+            <button onClick={handleClick}>Click Me</button>
+            <button onClick={(e) => handleClickAgain('Mario', e)}>Click Me Again</button>
 
             <p>{ name } is { age } years old</p>
-            <button onClick={handleClickChange}>Change name (tutorial 8)</button>
+            <button onClick={handleClickChange}>Change name</button>
 
-            <BlogList blogs={blogs} title="All Blogs" />
-            <BlogList blogs={blogs.filter} title="Mario's Blogs" />
+            {/* <BlogList blogs={blogs} title="All Blogs" /> */}
+            {/* Filtering arrays */}
+            <BlogList blogs={blogs.filter((blog) => blog.author === 'mario')} title="Mario's Blogs" />
         </div>
      );
 }
