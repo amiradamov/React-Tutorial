@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react';
 import BlogList from './BlogList';
 
 const Home = () => {
@@ -17,9 +17,12 @@ const Home = () => {
 
         setBlogs(newBlogs);
     }
+
+    // this emplty array [] at the end will not allow run given function after first run.
     useEffect(() => {
         console.log('use effect ran')
-    });
+        console.log(name);
+    }, [name]);
 
     // const handleClick = (e) => {
     //     console.log('hello world', e);
