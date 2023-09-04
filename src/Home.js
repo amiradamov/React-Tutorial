@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import BlogList from './BlogList';
 
 const Home = () => {
@@ -17,13 +17,16 @@ const Home = () => {
 
         setBlogs(newBlogs);
     }
+    useEffect(() => {
+        console.log('use effect ran')
+    });
 
-    const handleClick = (e) => {
-        console.log('hello world', e);
-    }
-    const handleClickAgain = (name, e) => {
-        console.log('hello ' + name, e.target);
-    }
+    // const handleClick = (e) => {
+    //     console.log('hello world', e);
+    // }
+    // const handleClickAgain = (name, e) => {
+    //     console.log('hello ' + name, e.target);
+    // }
 
     // let name = 'mario'
 
@@ -31,12 +34,12 @@ const Home = () => {
         setAge(30);
         setName('luigi');
     }
-    
+
     return ( 
         <div className="home">
             <h2>Home Page</h2>
-            <button onClick={handleClick}>Click Me</button>
-            <button onClick={(e) => handleClickAgain('Mario', e)}>Click Me Again</button>
+            {/* <button onClick={handleClick}>Click Me</button> */}
+            {/* <button onClick={(e) => handleClickAgain('Mario', e)}>Click Me Again</button> */}
 
             <p>{ name } is { age } years old</p>
             <button onClick={handleClickChange}>Change name</button>
