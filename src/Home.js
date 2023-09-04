@@ -25,7 +25,7 @@ const Home = () => {
         setAge(30);
         setName('luigi');
     }
-    
+     
     return ( 
         <div className="home">
             <h2>Home Page</h2>
