@@ -37,6 +37,7 @@ const Home = () => {
             <button onClick={handleClickChange}>Change name (tutorial 8)</button>
 
             <BlogList blogs={blogs} title="All Blogs" />
+            <BlogList blogs={blogs.filter} title="Mario's Blogs" />
         </div>
      );
 }
