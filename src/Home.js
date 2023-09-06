@@ -13,12 +13,18 @@ const Home = () => {
 
 
     useEffect(() => {
-        fetch()
+        fetch('http://localhost:8000/blogs')
+        .then(res => {
+            return res.json()
+        })
+        .then((data) => {
+            console.log(data);
+        })
     }, []);
 
     return ( 
         <div className="home">
-            <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete}/>
+            {/* <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete}/> */}
         </div>
      );
 }
