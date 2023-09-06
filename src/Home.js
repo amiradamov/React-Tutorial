@@ -3,28 +3,27 @@ import BlogList from './BlogList';
 
 const Home = () => {
 
-    const [blogs, setBlogs] = useState(null)
-
-    const handleDelete = (id) => {
-        const newBlogs = blogs.filter(blog => blog.id !== id);
-
-        setBlogs(newBlogs);
-    }
+    const [blogs, setBlogs] = useState(null);
+    const [isPending, setIsPending] = useState(true);
 
 
     useEffect(() => {
-        fetch('http://localhost:8000/blogs')
-        .then(res => {
-            return res.json()
-        })
-        .then((data) => {
-            console.log(data);
-        })
+        setTimeout(() => {
+            fetch('http://localhost:8000/blogs')
+            .then(res => {
+                return res.json()
+            })
+            .then((data) => {
+                setBlogs(data);
+                setIsPending(false);
+            });
+        }, 1000);
     }, []);
 
     return ( 
         <div className="home">
-            {/* <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete}/> */}
+            {isPending && <div>Loading...</div>}
+            {blogs && <BlogList blogs={blogs} title="All Blogs" />}
         </div>
      );
 }
