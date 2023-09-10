@@ -15,6 +15,7 @@ const Home = () => {
     const handleClick = (e) => {
         console.log('hello world', e);
     }
+    
     const handleClickAgain = (name, e) => {
         console.log('hello ' + name, e.target);
     }
